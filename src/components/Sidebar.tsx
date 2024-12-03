@@ -10,7 +10,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
-  const location = useLocation(); // Get the current URL path
+  const location = useLocation(); 
 
   const SidebarList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={onClose}>

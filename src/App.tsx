@@ -8,7 +8,7 @@ import Dashboard from './components/Dashboard';
 import { useState } from 'react';
 import { Box, CssBaseline } from '@mui/material';
 import TimeCalculator from './components/TimeCalculator';
-import { Route, Routes, Navigate } from 'react-router-dom'; // Make sure Navigate is imported
+import { Route, Routes, Navigate } from 'react-router-dom'; 
 import AddCountry from './components/AddCountry';
 
 const theme = createTheme({
