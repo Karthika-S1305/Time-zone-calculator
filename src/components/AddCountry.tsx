@@ -43,7 +43,6 @@ const AddCountry:React.FC = () => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   
 
- 
   useEffect(()=>{
     dispatch(fetchCountries());
   },[dispatch])
@@ -94,6 +93,8 @@ const AddCountry:React.FC = () => {
   const handleBlur = ( type:string) => {
     if (type ==='sign' && !/^[+-]$/.test(sign)) {
       setSignError("Sign must be '+' or '-'");
+    }else{
+      setSignError(false);
     }
 
     if (type === 'hours' && (!/^\d{1,2}$/.test(hours) || parseInt(hours) > 23)) {
@@ -373,7 +374,10 @@ const AddCountry:React.FC = () => {
               placeholder="+/-"
               value={sign}
               error={!!signError}
-              helperText={signError}
+              helperText={signError && (
+                <Typography variant="body2" color="error" sx={{ whiteSpace: 'nowrap' }}>
+                  {signError}
+                </Typography>)}
               autoComplete="off"
               onChange={(e) => setSign(e.target.value)}
               onBlur={()=>handleBlur('sign')} 
