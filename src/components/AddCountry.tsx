@@ -118,7 +118,7 @@ const AddCountry:React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if(countryName === '' || sign === ''  || hours === '' || minutes === ''){
+    if(countryName === '' || sign === ''  || hours === '' || minutes === '' || minutesError === 'true' ){
       alert("All fields are required");
     }
     else{
@@ -129,7 +129,7 @@ const AddCountry:React.FC = () => {
       return;
     }
   
-      const currentCountries = JSON.parse(localStorage.getItem('countries') || '[]');
+    const currentCountries = JSON.parse(localStorage.getItem('countries') || '[]');
     
     if (!currentCountries.some((existingCountry: { name: string }) => existingCountry.name === countryExists.name)) {
       const updatedCountries = [...currentCountries, { name: countryExists.name, flag: countryExists.flag, timezone: timeZone }];

@@ -103,7 +103,7 @@ const Dashboard: React.FC = () => {
                 <TableCell
                   sx={{
                     fontWeight: "bold",
-                    textAlign: { xs: "left", sm: "left" },
+                    textAlign: { xs: "center", sm: "left" },
                   }}
                 >
                   Country Name
