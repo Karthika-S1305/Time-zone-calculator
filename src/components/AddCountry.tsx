@@ -100,8 +100,8 @@ const AddCountry:React.FC = () => {
       setSignError(false);
     }
 
-    if (type === 'hours' && (!/^\d{1,2}$/.test(hours) || parseInt(hours) > 23)) {
-      setHoursError("Hours must be between 00 and 23");
+    if (type === 'hours' && (!/^\d{1,2}$/.test(hours) || parseInt(hours) > 14)) {
+      setHoursError("Hours must be between 00 and 14");
     } else {
       setHoursError(false);
     }

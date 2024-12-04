@@ -13,7 +13,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
   const location = useLocation(); 
 
   const SidebarList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={onClose}>
+    <Box sx={{ width: 240 }} role="presentation" onClick={onClose}>
       <List>
         {["Dashboard", "Add Country", "Time Calculator"].map((text, index) => {
           const to =

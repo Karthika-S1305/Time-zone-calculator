@@ -17,14 +17,12 @@ import {
   TextField,
   Grid,
   TablePagination,
-  Typography,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store/store";
 import moment from "moment";
 import { removeCalculatedCountry, setAddedCountries, setCalculatedTimes } from "../store/countrySlice";
 import DeleteForeverIcon  from "@mui/icons-material/DeleteForever";
-import { Label } from "@mui/icons-material";
 
 const TimeCalculator: React.FC = () => {
   const dispatch = useDispatch();
@@ -58,15 +56,17 @@ const TimeCalculator: React.FC = () => {
   };
 
   const handleCalculateTime = () => {
+    //input validation
     if (!selectedCountry || !inputTime) {
       alert("Please select a country and enter a time.");
       return;
     }
-
+    //finding the selected country data
     const selectedCountryData = addedCountries.find(
       (country) => country.name === selectedCountry
     );
 
+    //validating the selected country's timezone
     if (!selectedCountryData || !selectedCountryData.timezone) {
       alert("Selected country has an invalid timezone.");
       return;
@@ -74,6 +74,7 @@ const TimeCalculator: React.FC = () => {
 
     try {
       const selectedOffset = selectedCountryData.timezone;
+      //parsing the user input time
       const inputDateTime = moment
         .utc(`${moment().format("YYYY-MM-DD")}T${inputTime}`, "YYYY-MM-DDTHH:mm:ss")
         .utcOffset(selectedOffset, true);
