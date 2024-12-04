@@ -24,6 +24,7 @@ import { RootState } from "../store/store";
 import moment from "moment";
 import { removeCalculatedCountry, setAddedCountries, setCalculatedTimes } from "../store/countrySlice";
 import DeleteForeverIcon  from "@mui/icons-material/DeleteForever";
+import { Label } from "@mui/icons-material";
 
 const TimeCalculator: React.FC = () => {
   const dispatch = useDispatch();
@@ -118,8 +119,9 @@ const TimeCalculator: React.FC = () => {
       <Grid container spacing={2} justifyContent="center" alignItems="center" sx={{ mb: 3 }}>
         <Grid item xs={12} sm={6} md={4}>
           <FormControl style={{ width:"200px"}}>
-            <InputLabel>Select Country</InputLabel>
+          <InputLabel id="select-label">Select Country</InputLabel>
             <Select
+              label="Select Country"
               labelId="select-label"
               id="select"
               value={selectedCountry}
@@ -127,7 +129,6 @@ const TimeCalculator: React.FC = () => {
             >
               {addedCountries.length === 0 ? (
                 <MenuItem disabled>No countries available</MenuItem>
-                
               ) : (
                 addedCountries.map((country: any) => (
                   <MenuItem key={country.name} value={country.name}>
@@ -144,6 +145,7 @@ const TimeCalculator: React.FC = () => {
             required
             name="time"
             label="Current Time"
+            autoComplete="off"
             placeholder="HH:MM:SS"
             value={inputTime}
             onChange={handleTimeChange}

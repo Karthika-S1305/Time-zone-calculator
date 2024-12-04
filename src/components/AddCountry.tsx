@@ -82,11 +82,14 @@ const AddCountry:React.FC = () => {
   },[addedCountries, dispatch]);
   
 
-  const handleClose = () => {
+  const handleClose = () =>{
     setCountryName('');
     setSign('');
     setHours('');
     setMinutes('');
+    setSignError(false);
+    setHoursError(false);
+    setMinutesError(false);
     setIsAdd(false);
   }
 
@@ -140,12 +143,11 @@ const AddCountry:React.FC = () => {
         })
       );
     }
-      
+    setIsAdd(false);
     setCountryName('');
     setSign('');
     setHours('');
     setMinutes('');
-    setIsAdd(false);
   }
   };
 
@@ -423,15 +425,15 @@ const AddCountry:React.FC = () => {
               sx={{ width: '60px', marginRight: '10px' }}
             />
 
-            {error && (
+            {/* {error && (
               <p style={{ color: 'red', marginTop: '10px' }}>
                 {error}
               </p>
-            )}
+            )} */}
           </Box>
         </DialogContent>
         <DialogActions sx={{ justifyContent: "center", gap:2 }}>
-          <Button variant="outlined" onClick={handleClose}>Cancel</Button>
+          <Button variant="outlined" onClick={handleClose} key={isAdd? 'open': 'close'}>Cancel</Button>
           <Button variant="contained" onClick={handleSubmit}>
             Submit
           </Button>
