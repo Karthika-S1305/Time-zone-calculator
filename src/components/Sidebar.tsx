@@ -55,7 +55,6 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
       </List>
     </Box>
   );
-
   return (
     <Drawer
       open={open}
